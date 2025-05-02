@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-gray-900 to-gray-800 border-t border-gray-700 py-16 px-10 mt-16 w-full">
-      {/* Remove max-w-7xl to make sure it spans full width */}
+
       <div className="w-full mx-auto flex flex-col md:flex-row justify-between items-center text-sm md:text-base text-gray-400 space-y-8 md:space-y-0">
         
         {/* Left Section: Developer Info */}

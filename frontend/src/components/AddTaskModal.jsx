@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const AddTaskModal = ({ onSave, onClose }) => {
+const AddTaskModal = ({ onSave, onClose, taskToEdit }) => {
   const [task, setTask] = useState({
     title: "",
     description: "",
@@ -9,6 +9,19 @@ const AddTaskModal = ({ onSave, onClose }) => {
     status: "To Do",
     dueDate: "",
   });
+
+  
+  useEffect(() => {
+    if (taskToEdit) {
+      setTask({
+        title: taskToEdit.title || "",
+        description: taskToEdit.description || "",
+        priority: taskToEdit.priority || "Medium",
+        status: taskToEdit.status || "To Do",
+        dueDate: taskToEdit.dueDate?.slice(0, 10) || "",
+      });
+    }
+  }, [taskToEdit]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +36,9 @@ const AddTaskModal = ({ onSave, onClose }) => {
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md"
       >
-        <h2 className="text-xl font-bold mb-4">Add New Task</h2>
+        <h2 className="text-xl font-bold mb-4">
+          {taskToEdit ? "Edit Task" : "Add New Task"}
+        </h2>
         <input
           type="text"
           placeholder="Title"
@@ -35,17 +50,13 @@ const AddTaskModal = ({ onSave, onClose }) => {
         <textarea
           placeholder="Description"
           value={task.description}
-          onChange={(e) =>
-            setTask({ ...task, description: e.target.value })
-          }
+          onChange={(e) => setTask({ ...task, description: e.target.value })}
           className="w-full p-2 mb-4 border rounded"
           rows="3"
         />
         <select
           value={task.status}
-          onChange={(e) =>
-            setTask({ ...task, status: e.target.value })
-          }
+          onChange={(e) => setTask({ ...task, status: e.target.value })}
           className="w-full p-2 mb-4 border rounded"
         >
           <option value="To Do">To Do</option>
@@ -54,9 +65,7 @@ const AddTaskModal = ({ onSave, onClose }) => {
         </select>
         <select
           value={task.priority}
-          onChange={(e) =>
-            setTask({ ...task, priority: e.target.value })
-          }
+          onChange={(e) => setTask({ ...task, priority: e.target.value })}
           className="w-full p-2 mb-4 border rounded"
         >
           <option value="Low">Low</option>
@@ -66,9 +75,7 @@ const AddTaskModal = ({ onSave, onClose }) => {
         <input
           type="date"
           value={task.dueDate}
-          onChange={(e) =>
-            setTask({ ...task, dueDate: e.target.value })
-          }
+          onChange={(e) => setTask({ ...task, dueDate: e.target.value })}
           className="w-full p-2 mb-4 border rounded"
         />
         <div className="flex justify-end">
