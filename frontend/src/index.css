@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Vertical Scrollbar */
+::-webkit-scrollbar {
+  width: 6px; /* Slightly wider for a more noticeable scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #2d303f; /* Dark grayish background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #4e5d6a, #2d3748); /* Subtle gradient */
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #1a1e29, #444f63); /* Darker shade on hover */
+}
+
+/* Horizontal Scrollbar */
+::-webkit-scrollbar:horizontal {
+  height: 6px; /* Adjust height for horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track:horizontal {
+  background: #2d303f; /* Same dark background */
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: linear-gradient(to right, #4e5d6a, #2d3748); /* Subtle gradient */
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: linear-gradient(to right, #1a1e29, #444f63); /* Darker on hover */
+}
+
+/* Firefox (Optional) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #4e5d6a #2d303f; /* Same gradient-like colors for Firefox */
+}
