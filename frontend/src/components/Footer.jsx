@@ -15,7 +15,7 @@ const Footer = () => {
         {/* Middle Section: Social Links */}
         <div className="flex gap-8 items-center justify-center">
           <a
-            href="https://github.com/razak571"
+            href="https://github.com/Adityajain45"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-blue-400 transition-all duration-300 ease-in-out transform hover:scale-110 text-xl font-semibold"
@@ -23,7 +23,7 @@ const Footer = () => {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/in/razakattar"
+            href="https://www.linkedin.com/in/aaditya-jain-20b925251/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-blue-400 transition-all duration-300 ease-in-out transform hover:scale-110 text-xl font-semibold"
